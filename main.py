@@ -39,6 +39,12 @@ def main():
             if item.check_collision(player):
                 print("Game over!")
                 running = False
+        for pew in shots:
+            for rock in asteroids:
+                if pew.check_collision(rock):
+                    rock.split()
+                    pew.kill()
+                    break
         for item in drawable:
             item.draw(screen)
         pygame.display.flip()
